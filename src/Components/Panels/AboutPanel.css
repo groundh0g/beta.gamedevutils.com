@@ -1,0 +1,11 @@
+.panel-about {
+    left: 0;
+    background-color: lightgray;
+}
+
+.panel-about .panel-label,
+.panel-about .panel-label-center,
+.panel-about .panel-label-logo {
+    color: black;
+}
+

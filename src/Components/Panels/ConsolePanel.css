@@ -1,0 +1,10 @@
+.panel-console {
+    right: 0;
+    background-color: lightgray;
+}
+
+.panel-console .panel-label {
+    color: black;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bolder;
+}

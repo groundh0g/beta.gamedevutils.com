@@ -1,0 +1,18 @@
+.navbar-button-spacer {
+    color: white;
+    display: inline-block;
+    width: 0.8em;
+    text-align: center;
+    position: relative;
+    margin-left: -3px;
+}
+
+.navbar-button-spacer-line {
+    border-left: 1px solid lightslategray;
+    border-right: 1px solid lightslategray;
+}
+
+.navbar-button-spacer-line-dotted {
+    border-left: 0.5px dashed lightgoldenrodyellow;
+    border-right: 0.5px dashed lightgoldenrodyellow;
+}

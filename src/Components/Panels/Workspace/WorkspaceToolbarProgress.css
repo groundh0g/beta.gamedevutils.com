@@ -1,0 +1,17 @@
+.panel-workspace-progress-bar {
+    position: fixed;
+    background-color: #457;
+    color: white;
+    left: calc(100vw - 320px - 10vw);
+    right: 310px;
+    top: 55px;
+    height: 25px;
+    transition: left 0.33s, right 0.33s;
+}
+
+.panel-workspace-toolbar.fill-right .panel-workspace-progress-bar {
+    left: calc(100vw - 10px - 10vw);
+    right: 10px;
+    display: block;
+    transition: left 0.33s, right 0.33s;
+}

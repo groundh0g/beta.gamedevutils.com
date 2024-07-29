@@ -1,0 +1,26 @@
+.panel-workspace-toolbar {
+    position: fixed;
+    background-color: #234;
+    color: white;
+    font-size: 1.08em;
+    line-height: 30px;
+    left: 310px;
+    right: 310px;
+    top: 50px;
+    height: 30px;
+    text-align: left;
+    padding: 3px 0;
+    transition: left 0.33s, right 0.33s;
+}
+
+.panel-workspace-toolbar.fill-left {
+    left: 0;
+    display: block;
+    transition: left 0.33s;
+}
+
+.panel-workspace-toolbar.fill-right {
+    right: 0;
+    display: block;
+    transition: right 0.33s;
+}

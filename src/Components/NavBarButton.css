@@ -1,0 +1,14 @@
+.navbar-button {
+    color: white;
+    display: inline-block;
+    width: 45px;
+    text-align: center;
+    position: relative;
+    margin-right: 3px;
+}
+
+.navbar-button.active {
+    color: white;
+    background-color: darkslateblue;
+    border-radius: 50%;
+}

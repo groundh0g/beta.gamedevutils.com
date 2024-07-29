@@ -1,0 +1,30 @@
+.panel-workspace {
+    position: fixed;
+    background-color: #456;
+    left: 310px;
+    right: 310px;
+    top: 85px;
+    bottom: 0;
+    padding: 5px;
+    overflow-x: auto;
+    overflow-y: auto;
+    text-align: left;
+    transition: left 0.33s, right 0.33s;
+}
+
+.workspace {
+    display: inline-block;
+    min-width: 32px;
+    min-height: 32px;
+    background-image: url("../../../assets/transparent_background.png");
+}
+
+.panel-workspace.fill-left {
+    left: 0;
+    transition: left 0.33s;
+}
+
+.panel-workspace.fill-right {
+    right: 0;
+    transition: right 0.33s;
+}
