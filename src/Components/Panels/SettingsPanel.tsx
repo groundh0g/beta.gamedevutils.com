@@ -2,6 +2,7 @@ import './Panel.css';
 import './PanelAnimations.css';
 import './SettingsPanel.css';
 import {PanelVisibility} from "./_Types.ts";
+import ToggleButton from "../ToggleButton.tsx";
 
 export type SettingsPanelProps = {
     panelVisibility: PanelVisibility,
@@ -39,11 +40,11 @@ export default function SettingsPanel(props: SettingsPanelProps) {
             <div className="panel-header">Settings</div>
             <div className="panel-content">
                 <div className="panel-label">Thing 1</div>
-                <div className="panel-label">Thing 2</div>
-                <div className="panel-label">Thing 3</div>
-                <div className="panel-label">Thing 4</div>
-                <div className="panel-label">Thing 5</div>
-                <div className="panel-label">Thing 6</div>
+                <div className="panel-label"><ToggleButton label="Toggle One" title="Toggle One" field="toggleOne" isActive={true}/></div>
+                <div className="panel-label"><ToggleButton label="Toggle Two" title="Toggle Two" field="toggleTwo" isActive={true}/></div>
+                <div className="panel-label"><ToggleButton label="Toggle Three" title="Toggle Three" field="toggleThree" isActive={true}/></div>
+                <div className="panel-label"><ToggleButton label="Toggle Four" title="Toggle Four" field="toggleFour" isActive={true}/></div>
+                <div className="panel-label"><ToggleButton label="Toggle Five" title="Toggle Five" field="toggleFive" isActive={true}/></div>
                 <div className="panel-label">Thing 7</div>
                 <div className="panel-label">Thing 8</div>
                 <div className="panel-label">Thing 9</div>
