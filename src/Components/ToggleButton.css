@@ -1,3 +1,7 @@
-.toggle-button a {
-    color: white;
+.toggle-button a,
+.toggle-button a:link,
+.toggle-button a:visited,
+.toggle-button a:active,
+.toggle-button a:hover {
+    color: inherit;
 }

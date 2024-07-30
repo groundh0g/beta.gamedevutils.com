@@ -24,8 +24,8 @@ export default function ToggleButton(props: ToggleButtonProps) {
                 <div className={`navbar-button ${false && props.isActive ? "active" : ""}`}>
                     <i className={"fa fa-" + (isToggledOn ? "toggle-on" : "toggle-off")}></i>
                 </div>
+                {props.label}
             </a>
-            {props.label}
         </div>
     );
 }
