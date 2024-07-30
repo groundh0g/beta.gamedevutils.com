@@ -3,7 +3,7 @@
     background-color: #457;
     color: white;
     left: calc(100vw - 320px - 10vw);
-    right: 310px;
+    right: 315px;
     top: 55px;
     height: 25px;
     transition: left 0.33s, right 0.33s;

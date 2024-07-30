@@ -1,0 +1,9 @@
+.panel-console-mini-toolbar span {
+    display: inline-block;
+    width: 33.33%;
+    text-align: center;
+}
+
+.panel-console-mini-toolbar .navbar-button {
+    width: 25px;
+}

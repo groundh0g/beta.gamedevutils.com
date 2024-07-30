@@ -2,6 +2,7 @@ import './Panel.css';
 import './PanelAnimations.css';
 import './ConsolePanel.css';
 import {PanelVisibility} from "./_Types.ts";
+import ConsolePanelMiniToolbar from "./ConsolePanelMiniToolbar.tsx";
 
 export type ConsolePanelProps = {
     panelVisibility: PanelVisibility,
@@ -35,7 +36,7 @@ export default function ConsolePanel(props: ConsolePanelProps) {
 
     return (
         <div className={`panel panel-console ${classPanel}`}>
-            <div className="panel-header">Console</div>
+            <div className="panel-header"><ConsolePanelMiniToolbar /></div>
             <div className="panel-content">
                 <div className="panel-label">Thing  1</div>
                 <div className="panel-label">Thing  2</div>

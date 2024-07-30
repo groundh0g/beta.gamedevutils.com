@@ -2,6 +2,7 @@ import './Panel.css';
 import './PanelAnimations.css';
 import './AssetsPanel.css';
 import {PanelVisibility} from "./_Types.ts";
+import AssetsPanelMiniToolbar from "./AssetsPanelMiniToolbar.tsx";
 
 export type AssetsPanelProps = {
     panelVisibility: PanelVisibility,
@@ -36,7 +37,7 @@ export default function AssetsPanel(props: AssetsPanelProps) {
 
     return (
         <div className={`panel panel-assets ${classPanel}`}>
-            <div className="panel-header">Assets</div>
+            <div className="panel-header"><AssetsPanelMiniToolbar /></div>
             <div className="panel-content">
                 <div className="panel-label">Thing 1</div>
                 <div className="panel-label">Thing 2</div>

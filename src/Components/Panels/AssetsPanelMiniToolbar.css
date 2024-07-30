@@ -1,0 +1,9 @@
+.panel-assets-mini-toolbar .navbar-button {
+    width: 25px;
+}
+
+.panel-assets-mini-toolbar span {
+    display: inline-block;
+    width: 33.33%;
+    text-align: center;
+}
