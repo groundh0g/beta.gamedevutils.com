@@ -20,6 +20,12 @@
     overflow: hidden;
 }
 
+.panel-label.instruction {
+    font-style: italic;
+    font-size: 0.9em;
+    text-align: center;
+}
+
 .panel-top {
     bottom: 50vh;
 }

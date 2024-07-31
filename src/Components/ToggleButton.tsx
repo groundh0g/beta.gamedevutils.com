@@ -15,8 +15,9 @@ export default function ToggleButton(props: ToggleButtonProps) {
     const isToggledOn = useSelector(state => !state.project[props.field]);
     const dispatch = useDispatch();
 
+    // const emptyOnClick = () => { }
     const defaultOnClick = () => dispatch(toggle(props.field));
-    const onClick = props.onClick || defaultOnClick;
+    const onClick = props.isActive && props.onClick ? props.onClick : defaultOnClick;
 
     const classToggled = isToggledOn ? "toggled" : "";
     const classActive = props.isActive ? "active" : "";
@@ -26,7 +27,6 @@ export default function ToggleButton(props: ToggleButtonProps) {
             <a href="#null" onClick={onClick} title={props.title}>
                 <div className="navbar-button">
                     <div className={`toggle-button-wrapper ${classToggled} ${classActive}`}>
-                        {/*<div className="toggle-button-slider"></div>*/}
                         <div className="toggle-button-dot"></div>
                     </div>
                 </div>
