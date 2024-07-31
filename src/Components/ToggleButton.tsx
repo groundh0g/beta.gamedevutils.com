@@ -18,11 +18,17 @@ export default function ToggleButton(props: ToggleButtonProps) {
     const defaultOnClick = () => dispatch(toggle(props.field));
     const onClick = props.onClick || defaultOnClick;
 
+    const classToggled = isToggledOn ? "toggled" : "";
+    const classActive = props.isActive ? "active" : "";
+
     return (
         <div className="toggle-button">
             <a href="#null" onClick={onClick} title={props.title}>
-                <div className={`navbar-button ${false && props.isActive ? "active" : ""}`}>
-                    <i className={"fa fa-" + (isToggledOn ? "toggle-on" : "toggle-off")}></i>
+                <div className="navbar-button">
+                    <div className={`toggle-button-wrapper ${classToggled} ${classActive}`}>
+                        {/*<div className="toggle-button-slider"></div>*/}
+                        <div className="toggle-button-dot"></div>
+                    </div>
                 </div>
                 {props.label}
             </a>

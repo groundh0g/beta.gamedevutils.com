@@ -1,7 +1,62 @@
+.toggle-button-wrapper {
+    position: relative;
+    top: 3px;
+    left: 5px;
+    width: 28px;
+    height: 13px;
+    background-color: inherit;
+    border: 2px solid lightslategray;
+    border-radius: 15px;
+    padding: 0;
+    margin: 0;
+    transition: left 0.33s, background-color 0.33s;
+}
+
+.toggle-button-wrapper .active {
+    border: 2px solid white;
+}
+
+.toggle-button-dot {
+    position: relative;
+    top: 0;
+    left: 2px;
+    width: 13px;
+    height: 13px;
+    background-color: lightslategray;
+    border-radius: 50%;
+    padding: 0;
+    margin: 0;
+    transition: left 0.33s;
+}
+
+.toggle-button-wrapper.active .toggle-button-dot {
+    background-color: white;
+}
+
+.toggle-button-wrapper.active.toggled .toggle-button-dot {
+    left: 13px;
+    transition: left 0.33s;
+}
+
+.toggle-button-wrapper.active  {
+    border-color: white;
+}
+
+.toggle-button-wrapper.active.toggled  {
+    background-color: green;
+    transition: background-color 0.33s;
+}
+
 .toggle-button a,
 .toggle-button a:link,
 .toggle-button a:visited,
-.toggle-button a:active,
-.toggle-button a:hover {
+.toggle-button a:hover,
+.toggle-button a:active {
     color: inherit;
 }
+/*.toggle-button-wrapper active toggled {*/
+/*    border: 2px solid white;*/
+/*}*/
+/*.toggle-button-dot active {*/
+/*    background-color: white;*/
+/*}*/
