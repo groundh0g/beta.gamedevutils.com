@@ -43,6 +43,7 @@ export default function SettingsPanel(props: SettingsPanelProps) {
                 <div className="panel-label instruction">Configure project settings here.</div>
 
                 <div className="panel-header">Filters</div>
+
                 <div className="panel-label"><ToggleButton label="Clean Alpha" title="Clean Alpha" field="toggleOne" isActive={true}/></div>
                 <div className="panel-label"><ToggleButton label="ColorMask" title="Color Mask" field="toggleTwo" isActive={true}/></div>
                 <div className="panel-label"><ToggleButton label="Alias Sprites" title="Alias Sprites" field="toggleThree" isActive={true}/></div>
