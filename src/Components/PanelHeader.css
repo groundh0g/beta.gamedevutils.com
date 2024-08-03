@@ -1,0 +1,27 @@
+.hidden {
+    display: none;
+}
+
+.shown {
+    display: block;
+}
+
+.panel-header-control {
+    margin: 5px 0;
+}
+
+.panel-header-control a,
+.panel-header-control a:link,
+.panel-header-control a:visited,
+.panel-header-control a:hover,
+.panel-header-control a:active {
+    color: inherit;
+}
+
+.panel-header-content input[type="text"] {
+    width: 118px;
+}
+
+.panel-header-content select {
+    width: 125px;
+}

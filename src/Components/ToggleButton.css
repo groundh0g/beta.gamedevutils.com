@@ -33,7 +33,7 @@
     background-color: white;
 }
 
-.toggle-button-wrapper.active.toggled .toggle-button-dot {
+.toggle-button-wrapper.toggled .toggle-button-dot {
     left: 13px;
     transition: left 0.33s;
 }
@@ -42,9 +42,13 @@
     border-color: white;
 }
 
+.toggle-button-wrapper.toggled  {
+    background-color: darkolivegreen;
+    transition: background-color 0.33s;
+}
+
 .toggle-button-wrapper.active.toggled  {
     background-color: green;
-    transition: background-color 0.33s;
 }
 
 .toggle-button a,
@@ -54,9 +58,14 @@
 .toggle-button a:active {
     color: inherit;
 }
-/*.toggle-button-wrapper active toggled {*/
-/*    border: 2px solid white;*/
-/*}*/
-/*.toggle-button-dot active {*/
-/*    background-color: white;*/
-/*}*/
+
+span.toggle-button-text {
+    width: 50%;
+}
+span.toggle-button-text {
+    display: inline-block;
+    width: 50%;
+}
+span.hidden {
+    display: none;
+}

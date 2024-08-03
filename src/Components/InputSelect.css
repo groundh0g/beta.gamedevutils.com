@@ -1,0 +1,16 @@
+.input-select a,
+.input-select a:link,
+.input-select a:visited,
+.input-select a:hover,
+.input-select a:active {
+    color: inherit;
+}
+
+span.input-select-label {
+    display: inline-block;
+    width: 50%;
+}
+
+span.hidden {
+    display: none;
+}
