@@ -16,7 +16,7 @@ export default function InputSelect(props: InputSelectProps) {
     const id = `SelectInput-${props.field}`;
 
     // @ts-ignore
-    const project = useSelector(state => (state as any).project.project as Project);
+    const project = useSelector(state => (state as any).project.settings as Project);
     const lookups = useSelector(state => (state as any).project.lookups[props.field] as string[]);
     const storeValue = `${(project as any)[props.field]}`;
 
@@ -46,7 +46,7 @@ export default function InputSelect(props: InputSelectProps) {
                     name={props.field}
                     title={props.title}
                     defaultValue={storeValue}
-                    onSelect={(event: any) => {
+                    onChange={(event: any) => {
                         dispatch(setEnum(`${props.field}:${event.target.value}`));
                     }} >
                     {lookups.map((item) => (<option value={item} key={item}>{item}</option>))}

@@ -14,7 +14,7 @@ export type ToggleButtonProps = {
 
 export default function ToggleButton(props: ToggleButtonProps) {
 
-    const project = useSelector(state => (state as any).project.project as Project);
+    const project = useSelector(state => (state as any).project.settings as Project);
     const isToggledOn = `${(project as any)[props.field]}` === "true";
 
     const dispatch = useDispatch();

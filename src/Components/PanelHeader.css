@@ -22,6 +22,18 @@
     width: 118px;
 }
 
+.panel-header-content input[type="text"].include-lookup {
+    width: 101px;
+}
+
 .panel-header-content select {
     width: 125px;
+}
+
+.panel-header-content select.include-lookup {
+    width: 17px;
+}
+
+.panel-header-content select.include-lookup-hidden {
+    display: none;
 }
