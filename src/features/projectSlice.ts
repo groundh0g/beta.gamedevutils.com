@@ -3,7 +3,7 @@ import { MakeEmptyProject } from "../objects/Project";
 
 const NumberFields = ["width", "height", "borderPadding", "shapePadding", "innerPadding", "trimThreshold"];
 const StringFields = ["name", "imageFormat", "dataFormat", "spritePacker", "sortBy", "sizeMode", ];
-const BooleanFields = ["stripExtension", "allowRotate", "powerOf2", "forceSquare", "includeAt2x", "cleanAlpha", "colorMask", "aliasSprites", "debugMode", "trimSprites", "gifExtractFrames", "compressProject"];
+const BooleanFields = ["includeGroups", "stripExtension", "allowRotate", "powerOf2", "forceSquare", "includeAt2x", "cleanAlpha", "colorMask", "aliasSprites", "debugMode", "trimSprites", "gifExtractFrames", "compressProject"];
 
 const imageFormatValues = ["PNG", "GIF", "JPG", "BMP"];
 const dataFormatValues = ["XML", "JSON", "CSS"];
@@ -51,13 +51,22 @@ const setAnyValue = (state: any, field: string, value: string) => {
     setNumberValue(state, field, value);
 }
 
+const consoleLogEntries = [] as string[];
+
 export const projectSlice = createSlice({
     name: 'project',
     initialState: {
         settings: MakeEmptyProject(),
         lookups: AllEnumValues,
+        console: consoleLogEntries,
     },
     reducers: {
+        log: (state, action) => {
+            state.console.push(action.payload);
+        },
+        clearLog: (state, _action) => {
+            state.console.splice(0, state.console.length);
+        },
         setEnum: ((state, action) => {
             const parts = (action.payload as String).split(":");
             const field = parts[0];
@@ -95,5 +104,5 @@ export const projectSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { toggle, setNumber, setString, setBoolean, setEnum, setValue } = projectSlice.actions
+export const { toggle, setNumber, setString, setBoolean, setEnum, setValue, log, clearLog } = projectSlice.actions
 export default projectSlice.reducer

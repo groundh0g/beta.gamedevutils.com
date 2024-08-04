@@ -78,6 +78,7 @@ export default function SettingsPanel(props: SettingsPanelProps) {
                     <div className="panel-label"><InputText label="Filename" title="Filename" field="name" /></div>
                     <div className="panel-label"><InputSelect label="Image Format" title="Image Format" field="imageFormat" /></div>
                     <div className="panel-label"><InputSelect label="Data Format" title="Data Format" field="dataFormat" /></div>
+                    <div className="panel-label"><ToggleButton label="Incl. Groups" title="Include Groups in Names" field="includeGroups" /></div>
                     <div className="panel-label"><ToggleButton label="Strip Extension" title="Strip Extension" field="stripExtension" /></div>
                 </PanelHeader>
 

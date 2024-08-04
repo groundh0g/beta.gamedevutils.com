@@ -3,8 +3,20 @@
     background-color: lightgray;
 }
 
+.panel.panel-console {
+    white-space: normal;
+    overflow: hidden;
+}
+
+
 .panel-console .panel-label {
     color: black;
     font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+    font-size: 0.85em;
+}
+
+.panel-console .panel-label.console-item-error {
     font-weight: bolder;
+    color: #833;
 }

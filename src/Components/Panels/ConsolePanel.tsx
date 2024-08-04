@@ -3,12 +3,15 @@ import './PanelAnimations.css';
 import './ConsolePanel.css';
 import {PanelVisibility} from "./_Types.ts";
 import ConsolePanelMiniToolbar from "./ConsolePanelMiniToolbar.tsx";
+import {useSelector} from "react-redux";
 
 export type ConsolePanelProps = {
     panelVisibility: PanelVisibility,
 };
 
 export default function ConsolePanel(props: ConsolePanelProps) {
+    const console = useSelector(state => (state as any).project.console as string[]);
+
     let classPanel = "";
 
     const newlyVisible = props.panelVisibility.isConsoleVisible && !props.panelVisibility.wasConsoleVisible;
@@ -38,26 +41,10 @@ export default function ConsolePanel(props: ConsolePanelProps) {
         <div className={`panel panel-console ${classPanel}`}>
             <div className="panel-header"><ConsolePanelMiniToolbar /></div>
             <div className="panel-content">
-                <div className="panel-label">Thing  1</div>
-                <div className="panel-label">Thing  2</div>
-                <div className="panel-label">Thing  3</div>
-                <div className="panel-label">Thing  4</div>
-                <div className="panel-label">Thing  5</div>
-                <div className="panel-label">Thing  6</div>
-                <div className="panel-label">Thing  7</div>
-                <div className="panel-label">Thing  8</div>
-                <div className="panel-label">Thing  9</div>
-                <div className="panel-label">Thing 10</div>
-                <div className="panel-label">Thing 11</div>
-                <div className="panel-label">Thing 12</div>
-                <div className="panel-label">Thing 13</div>
-                <div className="panel-label">Thing 14</div>
-                <div className="panel-label">Thing 15</div>
-                <div className="panel-label">Thing 16</div>
-                <div className="panel-label">Thing 17</div>
-                <div className="panel-label">Thing 18</div>
-                <div className="panel-label">Thing 19</div>
-                <div className="panel-label">Thing 20</div>
+                {console.map((item, i) => {
+                    const classError = item.startsWith("ERR:") ? "console-item-error" : "";
+                    return <div className={`panel-label ${classError}`} key={`console-item-${i}`}>{item}</div>;
+                })}
             </div>
         </div>
     );
