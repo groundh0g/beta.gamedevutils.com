@@ -3,7 +3,7 @@ import { MakeEmptyProject } from "../objects/Project";
 
 const NumberFields = ["width", "height", "borderPadding", "shapePadding", "innerPadding", "trimThreshold"];
 const StringFields = ["name", "imageFormat", "dataFormat", "spritePacker", "sortBy", "sizeMode", ];
-const BooleanFields = ["includeGroups", "stripExtension", "allowRotate", "powerOf2", "forceSquare", "includeAt2x", "cleanAlpha", "colorMask", "aliasSprites", "debugMode", "trimSprites", "gifExtractFrames", "compressProject"];
+const BooleanFields = ["stripGroups", "stripExtension", "allowRotate", "powerOf2", "forceSquare", "includeAt2x", "cleanAlpha", "colorMask", "aliasSprites", "debugMode", "trimSprites", "gifExtractFrames", "compressProject"];
 
 const imageFormatValues = ["PNG", "GIF", "JPG", "BMP"];
 const dataFormatValues = ["XML", "JSON", "CSS"];
@@ -51,6 +51,8 @@ const setAnyValue = (state: any, field: string, value: string) => {
     setNumberValue(state, field, value);
 }
 
+type ImageMap = { [key: string]: string }
+
 const consoleLogEntries = [] as string[];
 
 export const projectSlice = createSlice({
@@ -59,6 +61,7 @@ export const projectSlice = createSlice({
         settings: MakeEmptyProject(),
         lookups: AllEnumValues,
         console: consoleLogEntries,
+        assets: {} as ImageMap,
     },
     reducers: {
         log: (state, action) => {
@@ -66,6 +69,13 @@ export const projectSlice = createSlice({
         },
         clearLog: (state, _action) => {
             state.console.splice(0, state.console.length);
+        },
+        addImage: (state, action) => {
+            const parts = action.payload.split("|");
+            state.assets[parts[0]] = parts[1];
+        },
+        removeImage: (state, action) => {
+            delete state.assets[action.payload];
         },
         setEnum: ((state, action) => {
             const parts = (action.payload as String).split(":");

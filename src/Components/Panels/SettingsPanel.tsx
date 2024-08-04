@@ -72,13 +72,13 @@ export default function SettingsPanel(props: SettingsPanelProps) {
             <div className="panel-header">Settings</div>
             <div className="panel-content">
 
-                <div className="panel-label instruction">Configure settings settings here.</div>
+                <div className="panel-label instruction">Configure project settings here.</div>
 
                 <PanelHeader title="Spritesheet Publish Options" label="Output" groupName="output" isShown={panelShowStates[makePanelId("output")]} showHideContent={showHideContent}>
                     <div className="panel-label"><InputText label="Filename" title="Filename" field="name" /></div>
                     <div className="panel-label"><InputSelect label="Image Format" title="Image Format" field="imageFormat" /></div>
                     <div className="panel-label"><InputSelect label="Data Format" title="Data Format" field="dataFormat" /></div>
-                    <div className="panel-label"><ToggleButton label="Incl. Groups" title="Include Groups in Names" field="includeGroups" /></div>
+                    <div className="panel-label"><ToggleButton label="Strip Groups" title="Include Groups in Names" field="stripGroups" /></div>
                     <div className="panel-label"><ToggleButton label="Strip Extension" title="Strip Extension" field="stripExtension" /></div>
                 </PanelHeader>
 

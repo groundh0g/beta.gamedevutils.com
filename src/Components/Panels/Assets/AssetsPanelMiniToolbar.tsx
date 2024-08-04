@@ -1,7 +1,10 @@
 import './AssetsPanelMiniToolbar.css';
 import NavBarButton from "../../NavBarButton.tsx";
+// import {useState} from "react";
 
 export default function AssetsPanelMiniToolbar() {
+    // const [isFileDialogShown, setIsFileDialogShown] = useState(false);
+    // const [isDeleteDialogShown, setIsDeleteDialogShown] = useState(false);
 
     return (
         <div className="panel-assets-mini-toolbar">

@@ -3,7 +3,7 @@ export type Project = {
     name: string,
     imageFormat: string,
     dataFormat: string,
-    includeGroups: boolean,
+    stripGroups: boolean,
     stripExtension: boolean,
     // Algorithm
     spritePacker: string,
@@ -38,7 +38,7 @@ export const MakeEmptyProject = () => {
         name: "Untitled",
         imageFormat: "PNG",
         dataFormat: "XML",
-        includeGroups: false,
+        stripGroups: true,
         stripExtension: true,
         // Algorithm
         spritePacker: "JoeRects",
