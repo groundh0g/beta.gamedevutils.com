@@ -1,5 +1,3 @@
-// import '../Panel.css';
-// import '../PanelAnimations.css';
 import './AssetItem.css';
 
 export type AssetsItemProps = {

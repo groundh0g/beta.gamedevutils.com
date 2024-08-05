@@ -1,0 +1,51 @@
+dialog#DialogDeleteImages::backdrop {
+    background-color: black;
+    opacity: 0.666;
+}
+
+/*dialog#DialogDeleteImages::backdrop {*/
+/*    background-image: linear-gradient(*/
+/*            45deg,*/
+/*            transparent,*/
+/*            palevioletred,*/
+/*            orange,*/
+/*            yellow,*/
+/*            greenyellow,*/
+/*            cornflowerblue,*/
+/*            mediumpurple,*/
+/*            palevioletred,*/
+/*            transparent*/
+/*    );*/
+/*    opacity: 0.333;*/
+/*}*/
+
+dialog#DialogDeleteImages {
+    background-color: #cdf;
+    border-radius: 10px;
+    border: #456 solid 2px;
+}
+
+dialog#DialogDeleteImages p {
+    font-size: 0.9em;
+    font-weight: normal;
+    text-transform: none;
+}
+
+dialog#DialogDeleteImages a.link-button {
+    display: inline-block;
+    background-color: #aaa;
+    color: #222;
+    border-radius: 10px;
+    border: #444 solid 2px;
+    font-weight: normal;
+    padding: 5px 10px;
+    margin-right: 10px;
+}
+
+dialog#DialogDeleteImages a.link-button.primary {
+    background-color: #789;
+    color: #def;
+    border: #345 solid 2px;
+    font-weight: bolder;
+}
+

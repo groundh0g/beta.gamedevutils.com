@@ -1,0 +1,58 @@
+dialog#DialogAddImages::backdrop {
+    background-color: black;
+    opacity: 0.666;
+}
+
+/*dialog#DialogAddImages::backdrop {*/
+/*    background-image: linear-gradient(*/
+/*            45deg,*/
+/*            transparent,*/
+/*            palevioletred,*/
+/*            orange,*/
+/*            yellow,*/
+/*            greenyellow,*/
+/*            cornflowerblue,*/
+/*            mediumpurple,*/
+/*            palevioletred,*/
+/*            transparent*/
+/*    );*/
+/*    opacity: 0.333;*/
+/*}*/
+
+dialog#DialogAddImages {
+    background-color: #cdf;
+    border-radius: 10px;
+    border: #456 solid 2px;
+}
+
+dialog#DialogAddImages div#assetDropzone{
+    margin: 30px;
+    padding: 15px;
+    border: black 2px dotted;
+    background-color: snow;
+}
+
+dialog#DialogAddImages p {
+    font-size: 0.9em;
+    font-weight: normal;
+    text-transform: none;
+}
+
+dialog#DialogAddImages a.link-button {
+    display: inline-block;
+    background-color: #aaa;
+    color: #222;
+    border-radius: 10px;
+    border: #444 solid 2px;
+    font-weight: normal;
+    padding: 5px 10px;
+    margin-right: 10px;
+}
+
+dialog#DialogAddImages a.link-button.primary {
+    background-color: #789;
+    color: #def;
+    border: #345 solid 2px;
+    font-weight: bolder;
+}
+
