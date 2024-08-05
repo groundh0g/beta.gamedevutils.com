@@ -9,6 +9,11 @@
     font-weight: bolder;
 }
 
+.panel-asset-item.selected {
+    padding: 1px;
+    border: 1px solid #345;
+}
+
 .panel-asset-item img {
     float: left;
     height: 43px;

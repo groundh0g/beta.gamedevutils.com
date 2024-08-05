@@ -4,6 +4,9 @@ import './AssetsPanel.css';
 import {PanelVisibility} from "../_Types.ts";
 import AssetsPanelMiniToolbar from "./AssetsPanelMiniToolbar.tsx";
 import AssetsItem from "./AssetItem.tsx";
+import {useSelector} from "react-redux";
+import {ImageMap} from "../../../features/projectSlice.ts";
+import {useState} from "react";
 
 export type AssetsPanelProps = {
     panelVisibility: PanelVisibility,
@@ -36,18 +39,38 @@ export default function AssetsPanel(props: AssetsPanelProps) {
         classPanel = "panel-hidden";
     }
 
+    const assets = useSelector(state => (state as any).project.assets as ImageMap);
+
+    const [selectedAssets, setSelectedAssets] = useState([] as string[]);
+    const selectToggle = (name: string) => {
+        if(selectedAssets.includes(name)) {
+            const newArray = selectedAssets.filter(asset => !asset.includes(name));
+            setSelectedAssets(newArray);
+        } else {
+            const newArray = [] as string[];
+            selectedAssets.map(value => newArray.push(value));
+            setSelectedAssets(newArray);
+        }
+    };
+
+    const assetsItems = [];
+    for(const key in assets) {
+        assetsItems.push(
+            <AssetsItem
+                name={`${key}`}
+                selected={selectedAssets.includes(key)}
+                selectToggle={selectToggle}
+                dataUrl={assets[key]}
+            />
+        );
+    }
+
     return (
         <div className={`panel panel-assets ${classPanel}`}>
             <div className="panel-header"><AssetsPanelMiniToolbar/></div>
             <div className="panel-content">
                 <div className="panel-label instruction">Project assets are shown here.</div>
-                <AssetsItem name="hello.png"/>
-                <AssetsItem name="jump-1.png"/>
-                <AssetsItem name="jump-2.png"/>
-                <AssetsItem name="run-1.png"/>
-                <AssetsItem name="run-2.png"/>
-                <AssetsItem name="this-is-a-longer-name.png"/>
-                <AssetsItem name="this-is-an-even-longer-name.png"/>
+                { assetsItems }
             </div>
         </div>
     );
