@@ -14,16 +14,17 @@ export default function AssetsItem(props: AssetsItemProps) {
     const classSelected = props.selected ? "selected" : "";
 
     const imageThumbnail = [];
+    let keyNumber = 100;
     if(props.dataUrl) {
         imageThumbnail.push(
-            <img alt="a game sprite" src={props.dataUrl}/>
+            <img alt="a game sprite" src={props.dataUrl} key={keyNumber++}/>
         );
     } else {
         imageThumbnail.push(
-            <img alt="a game sprite" src={PLACEHOLDER_IMAGE}/>
+            <img alt="a game sprite" src={PLACEHOLDER_IMAGE} key={keyNumber++}/>
         );
         imageThumbnail.push(
-            <img alt="loading" className="loading-image" src={LOADING_IMAGE}/>
+            <img alt="loading" className="loading-image" src={LOADING_IMAGE} key={keyNumber++}/>
         );
     }
 

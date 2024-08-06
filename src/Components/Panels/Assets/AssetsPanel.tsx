@@ -4,8 +4,8 @@ import './AssetsPanel.css';
 import {PanelVisibility} from "../_Types.ts";
 import AssetsPanelMiniToolbar from "./AssetsPanelMiniToolbar.tsx";
 import AssetsItem from "./AssetItem.tsx";
-import {useSelector} from "react-redux";
-import {ImageMap} from "../../../features/projectSlice.ts";
+import {useDispatch, useSelector} from "react-redux";
+import {ImageMap, swapAssets} from "../../../features/projectSlice.ts";
 import {useState} from "react";
 
 export type AssetsPanelProps = {
@@ -40,6 +40,7 @@ export default function AssetsPanel(props: AssetsPanelProps) {
     }
 
     const assets = useSelector(state => (state as any).project.assets as ImageMap);
+    const dispatch = useDispatch();
 
     const [selectedAssets, setSelectedAssets] = useState([] as string[]);
     const selectToggle = (name: string) => {
@@ -48,26 +49,67 @@ export default function AssetsPanel(props: AssetsPanelProps) {
             setSelectedAssets(newArray);
         } else {
             const newArray = [] as string[];
-            selectedAssets.map(value => newArray.push(value));
+            selectedAssets.map(value => {
+                if(value !== name) newArray.push(value);
+            });
+            newArray.push(name);
             setSelectedAssets(newArray);
         }
     };
 
+    const selectAll = () => {
+        const keys: string[] = Object.keys(assets);
+        if(selectedAssets.length < Object.keys(assets).length) {
+            setSelectedAssets(keys.map(value => value));
+        } else {
+            setSelectedAssets([]);
+        }
+    };
+
+    const orderAsset = (name: string, isUp: boolean) => {
+        console.log(name, isUp);
+        const newAssets = Object.assign({}, assets);
+        if(selectedAssets.includes(name)) {
+            const keys = Object.keys(assets);
+            if(isUp) {
+                const targetAsset = Object.assign({}, newAssets[name]);
+                const targetIndex = targetAsset.ordinal;
+                if(targetIndex < Object.keys(newAssets).length - 1) {
+                    const destAssetKey = keys.filter(key => newAssets[key].ordinal === targetAsset.ordinal + 1);
+                    dispatch(swapAssets(`${name}|${destAssetKey[0]}`));
+                }
+            } else {
+                const targetAsset = Object.assign({}, assets[name]);
+                const targetIndex = targetAsset.ordinal;
+                if(targetIndex > 0) {
+                    const destAssetKey = keys.filter(key => newAssets[key].ordinal === targetAsset.ordinal - 1);
+                    dispatch(swapAssets(`${name}|${destAssetKey[0]}`));
+                }
+            }
+        }
+    }
+
     const assetsItems = [];
-    for(const key in assets) {
+    const sortedKeys = Object.keys(assets).sort((a: string, b: string) => {
+        const ordinalA = assets[a].ordinal;
+        const ordinalB = assets[b].ordinal;
+        return ordinalA > ordinalB ? -1 : (ordinalA < ordinalB ? 1 : (a > b ? -1 : (a < b ? 1 : 0)));
+    });
+    for(const key of sortedKeys) {
         assetsItems.push(
             <AssetsItem
-                name={`${key}`}
+                name={key}
+                key={key}
                 selected={selectedAssets.includes(key)}
                 selectToggle={selectToggle}
-                dataUrl={assets[key]}
+                dataUrl={assets[key].origUrl}
             />
         );
     }
 
     return (
         <div className={`panel panel-assets ${classPanel}`}>
-            <div className="panel-header"><AssetsPanelMiniToolbar/></div>
+            <div className="panel-header"><AssetsPanelMiniToolbar selectedAssets={selectedAssets} selectAll={selectAll} orderAsset={orderAsset} /></div>
             <div className="panel-content">
                 <div className="panel-label instruction">Project assets are shown here.</div>
                 { assetsItems }

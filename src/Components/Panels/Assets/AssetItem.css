@@ -11,7 +11,8 @@
 
 .panel-asset-item.selected {
     padding: 1px;
-    border: 1px solid #345;
+    border: 1px solid #234;
+    background-color: #456;
 }
 
 .panel-asset-item img {
@@ -35,4 +36,5 @@
     height: 43px;
     margin-left: 10px;
     clear: both;
+    cursor: default;
 }
