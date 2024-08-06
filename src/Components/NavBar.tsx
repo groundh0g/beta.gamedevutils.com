@@ -11,6 +11,18 @@ export type NavBarProps = {
     toggleAboutPanel: () => void,
 };
 
+const BUG_REPORT_BODY = `
+Tell us how we can reproduce this issue. For example:
+
+I cannot remove an asset if it's the only item in the list.
+
+1. Start a new project.
+2. Add a single asset.
+3. Select the asset.
+4. The delete button should be enabled, but it's not.
+
+`.trim().replace(/\n/gim, "%0A");
+
 export default function NavBar(props: NavBarProps) {
     return (
         <div className='navbar-panel'>
@@ -27,8 +39,18 @@ export default function NavBar(props: NavBarProps) {
             <NavBarButton title="Show Assets" icon="images" isActive={props.panelVisibility.isAssetsVisible} onClick={props.toggleAssetsPanel} />
             <NavBarButton title="Show Console" icon="terminal" isActive={props.panelVisibility.isConsoleVisible} onClick={props.toggleConsolePanel} />
             <NavBarSpacer />
-            <NavBarButton title="Report a Bug" icon="bug" />
-            <NavBarButton title="Documentation" icon="question-circle" />
+            <NavBarButton
+                title="Report a Bug"
+                icon="bug"
+                href={`https://github.com/groundh0g/beta.gamedevutils.com/issues/new?labels=bug&title=[BUG]+Short Description&body=${BUG_REPORT_BODY}`}
+                target="_blank"
+            />
+            <NavBarButton
+                title="Documentation"
+                icon="question-circle"
+                href="https://docs.jekyllfaces.com/"
+                target="_blank"
+            />
         </div>
     );
 }

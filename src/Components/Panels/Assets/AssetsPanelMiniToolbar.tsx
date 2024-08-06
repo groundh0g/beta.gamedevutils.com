@@ -34,17 +34,25 @@ export default function AssetsPanelMiniToolbar(props: AssetsPanelMiniToolbarProp
             }}/>
             <div className="panel-assets-mini-toolbar">
                 <span>
-                    <NavBarButton title="Move Image(s) Up" icon="chevron-up" onClick={() => {
-                        if(props.selectedAssets.length) {
-                            props.orderAsset(props.selectedAssets[0], true);
-                        }
+                    <NavBarButton
+                        title="Move Image(s) Up"
+                        icon="chevron-up"
+                        isDisabled={props.selectedAssets.length !== 1}
+                        onClick={() => {
+                            if(props.selectedAssets.length) {
+                                props.orderAsset(props.selectedAssets[0], true);
+                            }
                     }} />
-                    <NavBarButton title="Move Image(s) Down" icon="chevron-down" onClick={() => {
-                        if(props.selectedAssets.length) {
-                            props.orderAsset(props.selectedAssets[0], false);
-                        }
+                    <NavBarButton
+                        title="Move Image(s) Down"
+                        icon="chevron-down"
+                        isDisabled={props.selectedAssets.length !== 1}
+                        onClick={() => {
+                            if(props.selectedAssets.length) {
+                                props.orderAsset(props.selectedAssets[0], false);
+                            }
                     }} />
-                    <NavBarButton title="Group Images" icon="object-group" onClick={() => {}} />
+                    <NavBarButton title="Group Images" icon="object-group" isDisabled={true} onClick={() => {}} />
                 </span>
                 <span>Assets</span>
                 <span>
@@ -54,8 +62,12 @@ export default function AssetsPanelMiniToolbar(props: AssetsPanelMiniToolbarProp
                     <NavBarButton title="Select/Deselect All Image(s)" icon="check-double" onClick={() => {
                         props.selectAll();
                     }} />
-                    <NavBarButton title="Delete Image(s)" icon="trash-alt" onClick={() => {
-                        setIsDeleteDialogShown(true);
+                    <NavBarButton
+                        title="Delete Image(s)"
+                        icon="trash-alt"
+                        isDisabled={props.selectedAssets.length < 1}
+                        onClick={() => {
+                            setIsDeleteDialogShown(true);
                     }} />
                 </span>
             </div>

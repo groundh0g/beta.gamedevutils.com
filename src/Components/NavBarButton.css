@@ -12,3 +12,7 @@
     background-color: darkslateblue;
     border-radius: 50%;
 }
+
+.navbar-button.disabled {
+    color: slategray;
+}
