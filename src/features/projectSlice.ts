@@ -117,11 +117,28 @@ export const projectSlice = createSlice({
             state.console.splice(0, state.console.length);
         },
         addImage: (state, action) => {
-            const parts = action.payload.split("|");
-            state.assets[parts[0]] = parts[1];
+            const parts = action.payload.split("|") as string[];
+            const asset = {
+                ordinal: Object.keys(state.assets).length,
+                gameUrl: undefined,
+                origUrl: parts[1],
+            } as ImageAsset;
+            state.assets[parts[0]] = asset;
         },
-        removeImage: (state, action) => {
-            delete state.assets[action.payload];
+        removeImages: (state, action) => {
+            const parts = action.payload.split("|");
+            for(const part of parts) {
+                const deletedOrdinal = state.assets[part].ordinal;
+                delete state.assets[part];
+                // close the gaps in asset ordinals
+                const keys = Object.keys(state.assets);
+                for(const key of keys) {
+                    const asset = state.assets[key];
+                    if(asset.ordinal > deletedOrdinal) {
+                        asset.ordinal = asset.ordinal - 1;
+                    }
+                }
+            }
         },
         setEnum: ((state, action) => {
             const parts = (action.payload as String).split(":");
@@ -161,11 +178,6 @@ export const projectSlice = createSlice({
             const parts = (action.payload as string).split("|");
             console.log(parts.join(", "));
             if(parts.length > 1) {
-                // const targetOrdinal = assets[parts[0]].ordinal;
-                // const destOrdinal = assets[parts[1]].ordinal;
-                // (state.assets as any)[parts[1]] = { ...assets[parts[1]], ordinal: destOrdinal };
-                // (state.assets as any)[parts[0]] = { ...assets[parts[0]], ordinal: targetOrdinal };
-
                 const srcAssetsItem = assets[parts[0]];
                 const dstAssetsItem = assets[parts[1]];
                 const srcOrdinal = srcAssetsItem.ordinal;
@@ -177,12 +189,10 @@ export const projectSlice = createSlice({
                 assets[parts[0]] = srcAssetsItem;
                 assets[parts[1]] = dstAssetsItem;
             }
-            // (state.assets as any)[parts[1]].ordinal = targetOrdinal;
-            // (state.assets as any)[parts[0]].ordinal = destOrdinal;
         })
     }
 })
 
 // Action creators are generated for each case reducer function
-export const { toggle, setNumber, setString, setBoolean, setEnum, setValue, log, clearLog, swapAssets } = projectSlice.actions
+export const { toggle, setNumber, setString, setBoolean, setEnum, setValue, log, clearLog, swapAssets, addImage, removeImages } = projectSlice.actions
 export default projectSlice.reducer

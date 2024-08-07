@@ -57,9 +57,11 @@ export default function AssetsPanel(props: AssetsPanelProps) {
         }
     };
 
-    const selectAll = () => {
+    const selectAll = (deselect?: boolean) => {
         const keys: string[] = Object.keys(assets);
-        if(selectedAssets.length < Object.keys(assets).length) {
+        if(deselect) {
+            setSelectedAssets([]);
+        } else if(selectedAssets.length < Object.keys(assets).length) {
             setSelectedAssets(keys.map(value => value));
         } else {
             setSelectedAssets([]);
@@ -67,6 +69,7 @@ export default function AssetsPanel(props: AssetsPanelProps) {
     };
 
     const orderAsset = (name: string, isUp: boolean) => {
+        isUp = !isUp;
         console.log(name, isUp);
         const newAssets = Object.assign({}, assets);
         if(selectedAssets.includes(name)) {
@@ -93,7 +96,7 @@ export default function AssetsPanel(props: AssetsPanelProps) {
     const sortedKeys = Object.keys(assets).sort((a: string, b: string) => {
         const ordinalA = assets[a].ordinal;
         const ordinalB = assets[b].ordinal;
-        return ordinalA > ordinalB ? -1 : (ordinalA < ordinalB ? 1 : (a > b ? -1 : (a < b ? 1 : 0)));
+        return ordinalA < ordinalB ? -1 : (ordinalA > ordinalB ? 1 : (a < b ? -1 : (a > b ? 1 : 0)));
     });
     for(const key of sortedKeys) {
         assetsItems.push(

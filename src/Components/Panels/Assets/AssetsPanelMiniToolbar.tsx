@@ -3,10 +3,12 @@ import NavBarButton from "../../NavBarButton.tsx";
 import DialogDeleteImages from "./DialogDeleteImages.tsx";
 import {useState} from "react";
 import DialogAddImages from "./DialogAddImages.tsx";
+import {ImageMap, removeImages} from "../../../features/projectSlice.ts";
+import {useDispatch, useSelector} from "react-redux";
 // import {PanelVisibility} from "../_Types.ts";
 
 export type AssetsPanelMiniToolbarProps = {
-    selectAll: () => void,
+    selectAll: (deselect?: boolean) => void,
     selectedAssets: string[],
     orderAsset: (name: string, isUp: boolean) => void,
 };
@@ -16,13 +18,29 @@ export default function AssetsPanelMiniToolbar(props: AssetsPanelMiniToolbarProp
     const [isDeleteDialogShown, setIsDeleteDialogShown] = useState(false);
     // const [selectedAssets, setSelectedAssets] = useState([] as string[]);
 
-    // if(selectedAssets.length === 0) {
-    //     setSelectedAssets(["hello.png", "run-2.png"]);
-    // }
+    const assets = useSelector(state => (state as any).project.assets as ImageMap);
+    const keys = Object.keys(assets);
+    const dispatch = useDispatch();
+
+    // TODO: remove this debug log message
+    if(props.selectedAssets.length === 1) {
+        console.log(props.selectedAssets.length, keys.length, assets[props.selectedAssets[0]].ordinal);
+    }
+
+    const isUpDisabled =
+        props.selectedAssets.length !== 1 ||
+        keys.length < 2 ||
+        assets[props.selectedAssets[0]].ordinal == 0;
+    const isDownDisabled =
+        props.selectedAssets.length !== 1 ||
+        keys.length < 2 ||
+        assets[props.selectedAssets[0]].ordinal == keys.length - 1;
 
     return (
         <>
             <DialogDeleteImages selected={props.selectedAssets} show={isDeleteDialogShown} onConfirm={() => {
+                dispatch(removeImages(props.selectedAssets.join("|")));
+                props.selectAll(true);
                 setIsDeleteDialogShown(false);
             }} onCancel={() => {
                 setIsDeleteDialogShown(false);
@@ -37,7 +55,7 @@ export default function AssetsPanelMiniToolbar(props: AssetsPanelMiniToolbarProp
                     <NavBarButton
                         title="Move Image(s) Up"
                         icon="chevron-up"
-                        isDisabled={props.selectedAssets.length !== 1}
+                        isDisabled={isUpDisabled}
                         onClick={() => {
                             if(props.selectedAssets.length) {
                                 props.orderAsset(props.selectedAssets[0], true);
@@ -46,7 +64,7 @@ export default function AssetsPanelMiniToolbar(props: AssetsPanelMiniToolbarProp
                     <NavBarButton
                         title="Move Image(s) Down"
                         icon="chevron-down"
-                        isDisabled={props.selectedAssets.length !== 1}
+                        isDisabled={isDownDisabled}
                         onClick={() => {
                             if(props.selectedAssets.length) {
                                 props.orderAsset(props.selectedAssets[0], false);
