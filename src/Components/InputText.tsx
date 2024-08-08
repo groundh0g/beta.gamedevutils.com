@@ -1,6 +1,6 @@
 import './InputText.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { setValue } from '../features/projectSlice';
+import { setValue } from '../features/appSlice.ts';
 import { Project } from "../objects/Project.ts";
 
 export type InputTextProps = {

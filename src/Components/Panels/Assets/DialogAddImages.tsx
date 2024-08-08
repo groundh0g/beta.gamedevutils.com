@@ -1,5 +1,5 @@
 import './DialogAddImages.css';
-import {addImage, log} from "../../../features/projectSlice.ts";
+import {addImage, log} from "../../../features/appSlice.ts";
 import {useDispatch} from "react-redux";
 // import {DragEventHandler, EventHandler} from "react";
 

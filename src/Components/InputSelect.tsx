@@ -1,6 +1,6 @@
 import './InputSelect.css';
 import { useSelector, useDispatch } from 'react-redux'
-import { setEnum } from '../features/projectSlice'
+import { setEnum } from '../features/appSlice.ts'
 import { Project } from "../objects/Project.ts";
 
 export type InputSelectProps = {

@@ -3,9 +3,9 @@ import NavBarButton from "../../NavBarButton.tsx";
 import DialogDeleteImages from "./DialogDeleteImages.tsx";
 import {useState} from "react";
 import DialogAddImages from "./DialogAddImages.tsx";
-import {ImageMap, removeImages} from "../../../features/projectSlice.ts";
+import {removeImages} from "../../../features/appSlice.ts";
 import {useDispatch, useSelector} from "react-redux";
-// import {PanelVisibility} from "../_Types.ts";
+import {ImageMap} from "../../../features/_Types.ts";
 
 export type AssetsPanelMiniToolbarProps = {
     selectAll: (deselect?: boolean) => void,
@@ -21,11 +21,6 @@ export default function AssetsPanelMiniToolbar(props: AssetsPanelMiniToolbarProp
     const assets = useSelector(state => (state as any).project.assets as ImageMap);
     const keys = Object.keys(assets);
     const dispatch = useDispatch();
-
-    // TODO: remove this debug log message
-    if(props.selectedAssets.length === 1) {
-        console.log(props.selectedAssets.length, keys.length, assets[props.selectedAssets[0]].ordinal);
-    }
 
     const isUpDisabled =
         props.selectedAssets.length !== 1 ||

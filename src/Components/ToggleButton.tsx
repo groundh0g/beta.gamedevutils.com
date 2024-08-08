@@ -1,6 +1,6 @@
 import './ToggleButton.css';
 import { useSelector, useDispatch } from 'react-redux'
-import { toggle } from '../features/projectSlice'
+import { toggle } from '../features/appSlice.ts'
 import {Project} from "../objects/Project.ts";
 
 export type ToggleButtonProps = {

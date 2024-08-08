@@ -1,4 +1,4 @@
-import {clearLog, log} from "../features/projectSlice.ts";
+import {clearLog, log} from "../features/appSlice.ts";
 import {Dispatch} from "react";
 
 export default class Console {

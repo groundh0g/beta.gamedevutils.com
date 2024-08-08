@@ -5,8 +5,9 @@ import {PanelVisibility} from "../_Types.ts";
 import AssetsPanelMiniToolbar from "./AssetsPanelMiniToolbar.tsx";
 import AssetsItem from "./AssetItem.tsx";
 import {useDispatch, useSelector} from "react-redux";
-import {ImageMap, swapAssets} from "../../../features/projectSlice.ts";
+import {swapAssets} from "../../../features/appSlice.ts";
 import {useState} from "react";
+import {ImageMap} from "../../../features/_Types.ts";
 
 export type AssetsPanelProps = {
     panelVisibility: PanelVisibility,
@@ -69,12 +70,11 @@ export default function AssetsPanel(props: AssetsPanelProps) {
     };
 
     const orderAsset = (name: string, isUp: boolean) => {
-        isUp = !isUp;
-        console.log(name, isUp);
+        const isDown = !isUp;
         const newAssets = Object.assign({}, assets);
         if(selectedAssets.includes(name)) {
             const keys = Object.keys(assets);
-            if(isUp) {
+            if(isDown) {
                 const targetAsset = Object.assign({}, newAssets[name]);
                 const targetIndex = targetAsset.ordinal;
                 if(targetIndex < Object.keys(newAssets).length - 1) {
