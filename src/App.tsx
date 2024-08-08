@@ -11,6 +11,7 @@ import WorkspacePanel from "./Components/Panels/Workspace/WorkspacePanel.tsx";
 import WorkspaceToolbar from "./Components/Panels/Workspace/WorkspaceToolbar.tsx";
 import Console from "./utils/Console.ts";
 import {useDispatch} from "react-redux";
+import TourWalkthrough from "./Tutorials/TourWalkthrough.tsx";
 
 export const Logged = [""];
 const BeginApp = Date.now();
@@ -24,6 +25,7 @@ export default function App() {
         panelVisibility.wasConsoleVisible = panelVisibility.isConsoleVisible;
         panelVisibility.wasSettingsVisible = panelVisibility.isSettingsVisible;
         panelVisibility.wasAboutVisible = panelVisibility.isAboutVisible;
+        panelVisibility.wasTourVisible = panelVisibility.isTourVisible;
     }
 
     const toggleAssetsPanel = () => {
@@ -54,13 +56,20 @@ export default function App() {
         setPanelVisibility(newPanelVisibility);
     };
 
+    const toggleTourOverlay = () => {
+        const newPanelVisibility = Object.assign({}, panelVisibility);
+        setWasPanelVisible(newPanelVisibility);
+        newPanelVisibility.isTourVisible = !panelVisibility.isTourVisible;
+        setPanelVisibility(newPanelVisibility);
+    };
+
     if(Logged.indexOf("AppLaunch") < 0) {
         Console.Log(dispatch, "Starting application ...");
         Console.Log(dispatch, "GameDevUtils.com");
         Console.Log(dispatch, "Spritesheet Designer, v0.3.0");
         Console.Log(dispatch, `Loaded in ${(Date.now() - BeginApp) / 1000.0} seconds.`);
-        Console.Error(dispatch, "Yes, we have no bananas!");
-        Console.Error(dispatch, "This is a longer message. I just wanted to see if the CSS will allow it to wrap as expected.");
+        // Console.Error(dispatch, "Yes, we have no bananas!");
+        // Console.Error(dispatch, "This is a longer message. I just wanted to see if the CSS will allow it to wrap as expected.");
         Logged.push("AppLaunch");
     }
 
@@ -72,6 +81,7 @@ export default function App() {
                 toggleConsolePanel={toggleConsolePanel}
                 toggleSettingsPanel={toggleSettingsPanel}
                 toggleAboutPanel={toggleAboutPanel}
+                toggleTourOverlay={toggleTourOverlay}
             ></NavBar>
             <SettingsPanel panelVisibility={panelVisibility}/>
             <AboutPanel panelVisibility={panelVisibility}/>
@@ -79,6 +89,7 @@ export default function App() {
             <ConsolePanel panelVisibility={panelVisibility}/>
             <WorkspaceToolbar panelVisibility={panelVisibility}/>
             <WorkspacePanel panelVisibility={panelVisibility}/>
+            <TourWalkthrough panelVisibility={panelVisibility} toggleTourOverlay={toggleTourOverlay} stepMax={12} />
         </>
     )
 }

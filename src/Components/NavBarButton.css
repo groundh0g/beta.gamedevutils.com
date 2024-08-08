@@ -9,7 +9,11 @@
 
 .navbar-button.active {
     color: white;
-    background-color: darkslateblue;
+    /*background-color: darkslateblue;*/
+    background-color: #543;
+    border: 3px solid darkgoldenrod;
+    width: 39px;
+    height: 39px;
     border-radius: 50%;
 }
 

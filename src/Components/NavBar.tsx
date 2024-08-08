@@ -9,6 +9,7 @@ export type NavBarProps = {
     toggleConsolePanel: () => void,
     toggleSettingsPanel: () => void,
     toggleAboutPanel: () => void,
+    toggleTourOverlay: () => void,
 };
 
 const BUG_REPORT_BODY = `
@@ -51,6 +52,7 @@ export default function NavBar(props: NavBarProps) {
                 href="https://docs.jekyllfaces.com/"
                 target="_blank"
             />
+            <NavBarButton title="Tutorial" icon="graduation-cap" isActive={props.panelVisibility.isTourVisible} onClick={props.toggleTourOverlay} />
         </div>
     );
 }

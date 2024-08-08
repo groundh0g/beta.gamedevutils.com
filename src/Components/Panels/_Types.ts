@@ -7,6 +7,8 @@ export type PanelVisibility = {
     wasSettingsVisible: boolean,
     isAboutVisible: boolean,
     wasAboutVisible: boolean,
+    isTourVisible: boolean,
+    wasTourVisible: boolean,
 };
 
 export const DefaultPanelVisibility: PanelVisibility = {
@@ -18,4 +20,6 @@ export const DefaultPanelVisibility: PanelVisibility = {
     wasSettingsVisible: true,
     isAboutVisible: false,
     wasAboutVisible: false,
+    isTourVisible: false,
+    wasTourVisible: false,
 };

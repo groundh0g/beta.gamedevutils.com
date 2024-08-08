@@ -1,0 +1,21 @@
+.tooltip {
+    position: fixed;
+    background: #fb4;
+    padding: 7px;
+
+    max-width: 320px;
+}
+
+.tooltip:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 12%;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-bottom-color: #fb4;
+    border-top: 0;
+    margin-left: -20px;
+    margin-top: -10px;
+}

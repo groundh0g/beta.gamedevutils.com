@@ -1,0 +1,156 @@
+:root {
+    --top-navbar: 60px;
+}
+
+.tooltip img {
+    float: left;
+    width: 90px;
+}
+
+.tooltip div.blurb {
+    float: left;
+    width: 230px;
+    /*display: inline-block;*/
+    text-align: left;
+}
+
+.tooltip h2 {
+    clear: both;
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.tooltip p {
+    margin: 0;
+}
+
+.tooltip footer {
+    padding: 5px 0;
+    clear: both;
+    font-size: 0.75em;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.tooltip footer a,
+.tooltip footer a:link,
+.tooltip footer a:visited,
+.tooltip footer a:active,
+.tooltip footer a:hover {
+    color: white;
+    background-color: darkorange;
+    padding: 3px 6px;
+    border-radius: 7px;
+}
+
+.tooltip footer a.disabled,
+.tooltip footer a:link.disabled,
+.tooltip footer a:visited.disabled,
+.tooltip footer a:active.disabled,
+.tooltip footer a:hover.disabled {
+    color: lightgrey;
+    background-color: gray;
+}
+
+.tooltip footer a.done,
+.tooltip footer a:link.done,
+.tooltip footer a:visited.done,
+.tooltip footer a:active.done,
+.tooltip footer a:hover.done {
+    color: cornsilk;
+    background-color: cornflowerblue;
+}
+
+.tooltip footer a.hidden,
+.tooltip footer a:link.hidden,
+.tooltip footer a:visited.hidden,
+.tooltip footer a:active.hidden,
+.tooltip footer a:hover.hidden {
+    display: none;
+}
+
+.tooltip a.close-tutorial {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: inherit;
+}
+
+/*.tooltip span.spacer.hidden {*/
+/*    display: none;*/
+/*}*/
+
+
+
+.tooltip.step-1 {
+    position: fixed;
+    left: 585px;
+    top: var(--top-navbar);
+}
+
+.tooltip.step-2 {
+    position: fixed;
+    left: -10px;
+    top: var(--top-navbar);
+}
+
+.tooltip.step-3 {
+    position: fixed;
+    left: 40px;
+    top: var(--top-navbar);
+}
+
+.tooltip.step-4 {
+    position: fixed;
+    left: 90px;
+    top: var(--top-navbar);
+}
+
+.tooltip.step-5 {
+    position: fixed;
+    left: 150px;
+    top: var(--top-navbar);
+}
+
+.tooltip.step-6 {
+    position: fixed;
+    left: 200px;
+    top: var(--top-navbar);
+}
+
+.tooltip.step-7 {
+    position: fixed;
+    left: 265px;
+    top: var(--top-navbar);
+}
+
+.tooltip.step-8 {
+    position: fixed;
+    left: 315px;
+    top: var(--top-navbar);
+}
+
+.tooltip.step-9 {
+    position: fixed;
+    left: 375px;
+    top: var(--top-navbar);
+}
+
+.tooltip.step-10 {
+    position: fixed;
+    left: 425px;
+    top: var(--top-navbar);
+}
+
+.tooltip.step-11 {
+    position: fixed;
+    left: 490px;
+    top: var(--top-navbar);
+}
+
+.tooltip.step-12 {
+    position: fixed;
+    left: 540px;
+    top: var(--top-navbar);
+}
+

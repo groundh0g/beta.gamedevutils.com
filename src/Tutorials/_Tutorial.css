@@ -1,0 +1,5 @@
+.tutorial-wrapper {
+    position: fixed;
+    min-height: 40px;
+    min-width: 120px;
+}

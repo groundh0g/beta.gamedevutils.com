@@ -75,6 +75,11 @@ export default function AboutPanel(props: AboutPanelProps) {
                 </div>
                 <div className="panel-label center">&copy; 2024 - Joseph B. Hall</div>
                 <div className="panel-label center"><i className={"fab fa-twitter"}></i> @groundh0g</div>
+                <div className="panel-label">
+                    <hr/>
+                </div>
+                <div className="panel-label center"><i className={"fas fa-coffee"}></i> Buy me a coffee.</div>
+                <div className="panel-label center"><i className={"fab fa-paypal"}></i> Support the project.</div>
             </div>
         </div>
     );
