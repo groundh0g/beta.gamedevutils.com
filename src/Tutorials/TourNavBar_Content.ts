@@ -15,11 +15,11 @@ export const tooltipText = {
         },
         {   // Step 4
             title: "Save the Project",
-            text: "You can save the current project here, then load it back into the editor when you're ready to work on it some more.",
+            text: "You can save the current project here, then load it back into the editor when you're ready to work on it again.",
         },
         {   // Step 5
             title: "Repack Sprites",
-            text: "The workspace at the center of the editor should reflect the latest changes. Click this button if you want to manually trigger a repacking of the sprites.",
+            text: "The workspace at the center of the editor should always reflect the latest changes. Use this button to manually trigger a repacking of the sprites.",
         },
         {   // Step 6
             title: "Publish Sprites",
@@ -27,27 +27,27 @@ export const tooltipText = {
         },
         {   // Step 7
             title: "Show Settings",
-            text: "Click this button to show or hide the settings panel.",
+            text: "This button shows or hides the settings panel. Click it now to see how the workspace is affected",
         },
         {   // Step 8
             title: "Show About",
-            text: "Click this button to show or hide the about panel.",
+            text: "This button shows or hides the about panel. Click it now to see how the workspace is affected",
         },
         {   // Step 9
             title: "Show Assets",
-            text: "Click this button to show or hide the assets panel.",
+            text: "This button shows or hides the assets panel. Click it now to see how the workspace is affected",
         },
         {   // Step 10
             title: "Show Console",
-            text: "Click this button to show or hide the console panel.",
+            text: "This button shows or hides the console panel. Click it now to see how the workspace is affected",
         },
         {   // Step 11
             title: "Report a Bug",
-            text: "Click this button to report issues you find within the editor, or request new features.",
+            text: "Use this button to report any issues you find with the editor, or use it to request new features. It will open a form in a new tab.",
         },
         {   // Step 12
             title: "Read the Docs",
-            text: "Click this button to open the documentation in a new tab.",
+            text: "Use this button to open the documentation in a new tab.",
         },
     ]
 };
