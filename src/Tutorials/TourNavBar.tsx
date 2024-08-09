@@ -3,8 +3,9 @@ import "./TourNavBar.css";
 import Tooltip from "./Components/Tooltip.tsx";
 import {PanelVisibility} from "../Components/Panels/_Types.ts";
 import {useState} from "react";
+import {tooltipText} from "./TourNavBar_Content.ts";
 
-export type TourWalkthroughProps = {
+export type TourNavBarProps = {
     stepMax: number,
     panelVisibility: PanelVisibility,
     toggleTourOverlay: () => void,
@@ -13,73 +14,23 @@ export type TourWalkthroughProps = {
 const INITIAL_STEP_STATE = -1;
 
 const getTooltipText = (step: number) => {
-    switch (step) {
-        case 1:
-            return <>
-                <h2>Take a Tour</h2>
-                <p>Click this button to start a tour of the toolbar.</p>
-            </>;
-        case 2:
-            return <>
-                <h2>Create a Project</h2>
-                <p>Start with a blank slate. Add some sprites. Then tweak the settings to create your spritesheet.</p>
-            </>;
-        case 3:
-            return <>
-                <h2>Open a Project</h2>
-                <p>You can open a saved project here, then add/remove sprites before publishing your project to a spritesheet.</p>
-            </>;
-        case 4:
-            return <>
-                <h2>Save the Project</h2>
-                <p>You can save the current project here, then load it back into the editor when you're ready to work on it some more.</p>
-            </>;
-        case 5:
-            return <>
-                <h2>Repack the Sprites</h2>
-                <p>The workspace at the center of the editor should reflect the latest changes.</p>
-                <p>Click this button if you want to manually trigger a repacking of the sprites.</p>
-            </>;
-        case 6:
-            return <>
-                <h2>Publish the Sprites</h2>
-                <p>Click this button to generate the assets for use in your game or website.</p>
-            </>;
-        case 7:
-            return <>
-                <h2>Show Settings</h2>
-                <p>Click this button to show or hide the settings panel.</p>
-            </>;
-        case 8:
-            return <>
-                <h2>Show About</h2>
-                <p>Click this button to show or hide the about panel.</p>
-            </>;
-        case 9:
-            return <>
-                <h2>Show Assets</h2>
-                <p>Click this button to show or hide the assets panel.</p>
-            </>;
-        case 10:
-            return <>
-                <h2>Show Console</h2>
-                <p>Click this button to show or hide the console panel.</p>
-            </>;
-        case 11:
-            return <>
-                <h2>Report a Bug</h2>
-                <p>Click this button to report issues you find within the editor, or request new features.</p>
-            </>;
-        case 12:
-            return <>
-                <h2>Read the Docs</h2>
-                <p>Click this button to open the documentation in a new tab.</p>
-            </>;
+    if(step > 0) {
+        console.log(step - 1);
+        const content = tooltipText.values[step - 1];
+        console.log(content);
+        return (
+            <>
+                <h2>{content.title}</h2>
+                <p>{content.text}</p>
+            </>
+        );
     }
+    return (<></>);
 };
 
-export default function TourNavBar(props: TourWalkthroughProps) {
+export default function TourNavBar(props: TourNavBarProps) {
     const [step, setStep] = useState(INITIAL_STEP_STATE);
+
     const prevDisabledClass = step === 1 ? "disabled" : "";
     const nextHiddenClass = step >= props.stepMax ? "hidden" : "";
     const doneHiddenClass = step >= props.stepMax ? "" : "hidden";

@@ -59,6 +59,7 @@
 .tooltip footer a:hover.done {
     color: cornsilk;
     background-color: cornflowerblue;
+    font-weight: bolder;
 }
 
 .tooltip footer a.hidden,
