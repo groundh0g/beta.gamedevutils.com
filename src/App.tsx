@@ -11,7 +11,7 @@ import WorkspacePanel from "./Components/Panels/Workspace/WorkspacePanel.tsx";
 import WorkspaceToolbar from "./Components/Panels/Workspace/WorkspaceToolbar.tsx";
 import Console from "./utils/Console.ts";
 import {useDispatch} from "react-redux";
-import TourWalkthrough from "./Tutorials/TourWalkthrough.tsx";
+import TourNavBar from "./Tutorials/TourNavBar.tsx";
 
 export const Logged = [""];
 const BeginApp = Date.now();
@@ -89,7 +89,7 @@ export default function App() {
             <ConsolePanel panelVisibility={panelVisibility}/>
             <WorkspaceToolbar panelVisibility={panelVisibility}/>
             <WorkspacePanel panelVisibility={panelVisibility}/>
-            <TourWalkthrough panelVisibility={panelVisibility} toggleTourOverlay={toggleTourOverlay} stepMax={12} />
+            <TourNavBar panelVisibility={panelVisibility} toggleTourOverlay={toggleTourOverlay} stepMax={12} />
         </>
     )
 }

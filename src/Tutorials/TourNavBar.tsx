@@ -1,5 +1,5 @@
 import "./_Tutorial.css";
-import "./TourWalkthrough.css";
+import "./TourNavBar.css";
 import Tooltip from "./Components/Tooltip.tsx";
 import {PanelVisibility} from "../Components/Panels/_Types.ts";
 import {useState} from "react";
@@ -78,7 +78,7 @@ const getTooltipText = (step: number) => {
     }
 };
 
-export default function TourWalkthrough(props: TourWalkthroughProps) {
+export default function TourNavBar(props: TourWalkthroughProps) {
     const [step, setStep] = useState(INITIAL_STEP_STATE);
     const prevDisabledClass = step === 1 ? "disabled" : "";
     const nextHiddenClass = step >= props.stepMax ? "hidden" : "";
