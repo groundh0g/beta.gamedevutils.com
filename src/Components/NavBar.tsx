@@ -29,9 +29,13 @@ export default function NavBar(props: NavBarProps) {
         <div className='navbar-panel'>
             <NavBarButton title="New Project" icon="file" />
             <NavBarButton title="Open Project" icon="folder-open" />
-            <NavBarButton title="Save Project" icon="save" />
+            <NavBarButton title="Save Project" icon="save" showDirtyIndicator={true} onClick={() => {
+                alert("This button hasn't been implemented yet.")
+            }} />
             <NavBarSpacer />
-            <NavBarButton title="Refresh Pack" icon="sync" />
+            <NavBarButton title="Refresh Pack" icon="sync" showDirtyIndicator={true} onClick={() => {
+                alert("This button hasn't been implemented yet.")
+            }} />
             <NavBarButton title="Publish Sprites" icon="share-square" />
             <NavBarSpacer />
             <NavBarButton title="Show Settings" icon="sliders-h" isActive={props.panelVisibility.isSettingsVisible} onClick={props.toggleSettingsPanel} />

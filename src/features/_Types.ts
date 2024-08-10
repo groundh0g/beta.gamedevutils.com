@@ -3,10 +3,24 @@ import {Project} from "../objects/Project.ts";
 export type ImageAsset = {
     ordinal: number,
     origUrl: string,
-    gameUrl: string | undefined,
+    // gameUrl: string | undefined,
 };
 
 export type ImageMap = { [key: string]: ImageAsset };
+
+export type Rectangle = {
+    x: number,
+    y: number,
+    width: number,
+    height: number,
+};
+
+export type ImageMeta = {
+    rect: Rectangle,
+    frameUrls: string[],
+};
+
+export type FrameMap = { [key: string]: ImageMeta };
 
 export type LookupValues = {
     imageFormat: string[],
@@ -23,6 +37,7 @@ export type State = {
     lookups: LookupValues,
     console: string[],
     assets: ImageMap,
+    frames: FrameMap,
 };
 
 export type Action = {

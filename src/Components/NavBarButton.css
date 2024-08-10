@@ -20,3 +20,17 @@
 .navbar-button.disabled {
     color: slategray;
 }
+
+.navbar-button span.dirty {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: red;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.navbar-button span.hidden {
+    display: none;
+}

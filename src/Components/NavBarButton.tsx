@@ -8,11 +8,14 @@ export type NavBarButtonProps = {
     isActive?: boolean,
     onClick?: () => void,
     isDisabled?: boolean,
+    showDirtyIndicator?: boolean,
 };
 
 export default function NavBarButton(props: NavBarButtonProps) {
     const classActive = props.isActive ? "active" : "";
     const classDisabled = props.isDisabled ? "disabled" : "";
+    const classDirty = props.showDirtyIndicator ? "dirty" : "hidden";
+
     return (
         <a href={props.href ? props.href : "#null"}
            target={props.target ? props.target : undefined}
@@ -21,6 +24,11 @@ export default function NavBarButton(props: NavBarButtonProps) {
                    props.onClick();
                }
            }}
-           title={props.title}><div className={`navbar-button ${classActive} ${classDisabled}`}><i className={"fa fa-" + props.icon}></i></div></a>
+           title={props.title}>
+            <div className={`navbar-button ${classActive} ${classDisabled}`}>
+                <i className={"fa fa-" + props.icon}></i>
+                <span className={`${classDirty}`}></span>
+            </div>
+        </a>
     );
 }
