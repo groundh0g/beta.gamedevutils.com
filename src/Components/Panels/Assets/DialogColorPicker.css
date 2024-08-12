@@ -1,0 +1,95 @@
+dialog#DialogColorPicker::backdrop {
+    background-color: black;
+    opacity: 0.666;
+}
+
+dialog#DialogColorPicker {
+    background-color: #cdf;
+    border-radius: 10px;
+    border: #456 solid 2px;
+}
+
+dialog#DialogColorPicker p {
+    font-size: 0.9em;
+    font-weight: normal;
+    text-transform: none;
+}
+
+dialog#DialogColorPicker a.link-button {
+    display: inline-block;
+    background-color: #aaa;
+    color: #222;
+    border-radius: 10px;
+    border: #444 solid 2px;
+    font-weight: normal;
+    padding: 5px 10px;
+    margin-right: 10px;
+}
+
+/*dialog#DialogColorPicker a.link-button.primary {*/
+/*    background-color: #789;*/
+/*    color: #def;*/
+/*    border: #345 solid 2px;*/
+/*    font-weight: bolder;*/
+/*}*/
+
+dialog#DialogColorPicker div.color-palette {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+dialog#DialogColorPicker div.color-palette-option {
+    position: relative;
+    display: inline-block;
+    min-width: 32px;
+    min-height: 32px;
+    margin-right: 5px;
+    border: black solid 2px;
+    border-radius: 15%;
+    cursor: pointer;
+}
+
+dialog#DialogColorPicker div.color-palette-option span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 32px;
+    line-height: 32px;
+}
+
+dialog#DialogColorPicker div.color-palette-option.color-palette__transparent, .color-palette__transparent {
+    background: url("../../../assets/transparent_background.png");
+}
+
+dialog#DialogColorPicker div.color-palette-option.color-palette__red, .color-palette__red {
+    background: indianred;
+}
+
+dialog#DialogColorPicker div.color-palette-option.color-palette__green, .color-palette__green {
+    background: green;
+}
+
+dialog#DialogColorPicker div.color-palette-option.color-palette__blue, .color-palette__blue {
+    background: lightslategrey;
+}
+
+dialog#DialogColorPicker div.color-palette-option.color-palette__yellow, .color-palette__yellow {
+    background: gold;
+}
+
+dialog#DialogColorPicker div.color-palette-option.color-palette__purple, .color-palette__purple {
+    background: mediumpurple;
+}
+
+dialog#DialogColorPicker div.color-palette-option.color-palette__orange, .color-palette__orange {
+    background: darkorange;
+}
+
+dialog#DialogColorPicker div.color-palette-option.color-palette__white, .color-palette__light {
+    background: white;
+}
+
+dialog#DialogColorPicker div.color-palette-option.color-palette__dark, .color-palette__dark {
+    background: dimgray;
+}
+

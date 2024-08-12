@@ -5,20 +5,37 @@ import AssetsPanel from "./Components/Panels/Assets/AssetsPanel.tsx";
 import ConsolePanel from "./Components/Panels/ConsolePanel.tsx";
 import AboutPanel from "./Components/Panels/AboutPanel.tsx";
 import {DefaultPanelVisibility, PanelVisibility} from "./Components/Panels/_Types.ts";
-import {useState} from "react";
+import {Dispatch, useState} from "react";
 
 import WorkspacePanel from "./Components/Panels/Workspace/WorkspacePanel.tsx";
 import WorkspaceToolbar from "./Components/Panels/Workspace/WorkspaceToolbar.tsx";
 import Console from "./utils/Console.ts";
 import {useDispatch} from "react-redux";
 import TourNavBar from "./Tutorials/TourNavBar.tsx";
+import GUI from "./utils/UserInterface.ts";
+import {UnknownAction} from "@reduxjs/toolkit";
 
 export const Logged = [""];
 const BeginApp = Date.now();
 
+// ----------------------------
+// TODO: remove this demo logic
+// ----------------------------
+let dispatch: Dispatch<UnknownAction>;
+let counter = 0;
+setInterval(() => {
+    if(dispatch) {
+        GUI.SetProgress(dispatch, counter);
+        counter += 0.1;
+        if (counter > 1.1) counter = -0.1;
+    }
+}, 500);
+// ----------------------------
+// ----------------------------
+
 export default function App() {
     const [panelVisibility, setPanelVisibility] = useState(DefaultPanelVisibility);
-    const dispatch = useDispatch();
+    dispatch = useDispatch();
 
     const setWasPanelVisible = (panelVisibility: PanelVisibility) => {
         panelVisibility.wasAssetsVisible = panelVisibility.isAssetsVisible;

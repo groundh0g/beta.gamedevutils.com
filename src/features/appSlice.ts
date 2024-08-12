@@ -1,10 +1,17 @@
 import {createSlice} from '@reduxjs/toolkit'
 import {MakeEmptyProject} from "../objects/Project";
 import {FrameMap, State} from "./_Types.ts";
-import {INITIAL_ASSETS, INITIAL_CONSOLE_VALUES, INITIAL_LOOKUP_VALUES} from "./_Constants.ts";
+import {INITIAL_ASSETS, INITIAL_CONSOLE_VALUES, INITIAL_LOOKUP_VALUES, INITIAL_SCREEN_STATE} from "./_Constants.ts";
 import {AddLogEntry, ClearLogEntries} from "./reducerConsole.ts";
 import {AddImage, RemoveImages, SwapImages} from "./reducerAssets.ts";
-import { SetAnyValue, SetBoolean, SetEnum, SetNumber, SetString, Toggle } from "./reducerSettings.ts";
+import {SetAnyValue, SetBoolean, SetEnum, SetNumber, SetString, Toggle} from "./reducerSettings.ts";
+import {
+    ClearProgress,
+    SetDirtyProject,
+    SetDirtyWorkspace,
+    SetProgress,
+    SetThumbnailBackground
+} from "./reducerUserInterface.ts";
 import {clearFrames, populateFrame, populateFrames} from "./reducerFilters.ts";
 // import {Buffer} from 'node:buffer';
 // import {PNG} from 'pngjs';
@@ -22,12 +29,20 @@ export const appSlice = createSlice({
         console: INITIAL_CONSOLE_VALUES,
         assets: INITIAL_ASSETS,
         frames: {} as FrameMap,
+        screen: INITIAL_SCREEN_STATE,
     } as State,
     reducers: {
 
         // Report Status
         log: AddLogEntry,
         clearLog: ClearLogEntries,
+
+        // Update GUI
+        clearProgress: ClearProgress,
+        setProgress: SetProgress,
+        setDirtyWorkspace: SetDirtyWorkspace,
+        setDirtyProject: SetDirtyProject,
+        setThumbnailBackground: SetThumbnailBackground,
 
         // Manage Assets
         addImage: AddImage,
@@ -53,6 +68,12 @@ export const appSlice = createSlice({
 export const {
     log,
     clearLog,
+
+    clearProgress,
+    setProgress,
+    setDirtyWorkspace,
+    setDirtyProject,
+    setThumbnailBackground,
 
     addImage,
     removeImages,

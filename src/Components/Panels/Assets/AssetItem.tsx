@@ -1,4 +1,6 @@
 import './AssetItem.css';
+import './DialogColorPicker.css';
+import {useSelector} from "react-redux";
 
 export type AssetsItemProps = {
     name: string,
@@ -13,15 +15,18 @@ const LOADING_IMAGE = "data:image/gif;base64,R0lGODlhsACwAPcAAAAAAAAAAAAAAAAAAAA
 export default function AssetsItem(props: AssetsItemProps) {
     const classSelected = props.selected ? "selected" : "";
 
+    const thumbnailBackground = useSelector(state => (state as any).project.screen.thumbnailBackground as string);
+    const thumbnailBackgroundClass = `color-palette__${thumbnailBackground}`;
+
     const imageThumbnail = [];
     let keyNumber = 100;
     if(props.dataUrl) {
         imageThumbnail.push(
-            <img alt="a game sprite" src={props.dataUrl} key={keyNumber++}/>
+            <img className={thumbnailBackgroundClass} alt="a game sprite" src={props.dataUrl} key={keyNumber++}/>
         );
     } else {
         imageThumbnail.push(
-            <img alt="a game sprite" src={PLACEHOLDER_IMAGE} key={keyNumber++}/>
+            <img className={thumbnailBackgroundClass} alt="a game sprite" src={PLACEHOLDER_IMAGE} key={keyNumber++}/>
         );
         imageThumbnail.push(
             <img alt="loading" className="loading-image" src={LOADING_IMAGE} key={keyNumber++}/>

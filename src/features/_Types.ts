@@ -32,12 +32,20 @@ export type LookupValues = {
     height: string[],
 };
 
+export type ScreenState = {
+    progress: number,
+    dirtyProject: boolean,
+    dirtyWorkspace: boolean,
+    thumbnailBackground: string,
+};
+
 export type State = {
     settings: Project,
     lookups: LookupValues,
     console: string[],
     assets: ImageMap,
     frames: FrameMap,
+    screen: ScreenState,
 };
 
 export type Action = {

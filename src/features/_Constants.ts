@@ -1,4 +1,11 @@
-import {ImageMap, LookupValues} from "./_Types.ts";
+import {ImageMap, LookupValues, ScreenState} from "./_Types.ts";
+
+export const INITIAL_SCREEN_STATE = {
+    progress: 0,
+    dirtyProject: true,
+    dirtyWorkspace: false,
+    thumbnailBackground: "transparent",
+} as ScreenState;
 
 export const imageFormatValues = ["PNG", "GIF", "JPG", "BMP"];
 export const dataFormatValues = ["XML", "JSON", "CSS"];
@@ -16,6 +23,18 @@ export const INITIAL_LOOKUP_VALUES = {
     width: SIZE_VALUES,
     height: SIZE_VALUES,
 } as LookupValues;
+
+export const THUMBNAIL_BACKGROUNDS = [
+    "transparent",
+    "red",
+    "green",
+    "blue",
+    "yellow",
+    "purple",
+    "orange",
+    "light",
+    "dark",
+];
 
 export const INITIAL_CONSOLE_VALUES = [] as string[];
 

@@ -6,12 +6,23 @@
     right: 315px;
     top: 55px;
     height: 25px;
-    transition: left 0.33s, right 0.33s;
+    transition: left 0.33s, right 0.33s, width 0.33s;
+    border-radius: 10%;
 }
 
 .panel-workspace-toolbar.fill-right .panel-workspace-progress-bar {
     left: calc(100vw - 10px - 10vw);
     right: 10px;
     display: block;
-    transition: left 0.33s, right 0.33s;
+    transition: left 0.33s, right 0.33s, width 0.33s;
+}
+
+.progress-bar-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    background-color: greenyellow;
+    border-radius: 10%;
+    transition: width 0.33s;
 }

@@ -2,6 +2,8 @@ import './NavBar.css';
 import NavBarButton from "./NavBarButton.tsx";
 import NavBarSpacer from "./NavBarSpacer.tsx";
 import {PanelVisibility} from "./Panels/_Types.ts";
+import {useSelector} from "react-redux";
+import {ScreenState} from "../features/_Types.ts";
 
 export type NavBarProps = {
     panelVisibility: PanelVisibility,
@@ -25,15 +27,17 @@ I cannot remove an asset if it's the only item in the list.
 `.trim().replace(/\n/gim, "%0A");
 
 export default function NavBar(props: NavBarProps) {
+    const screenState = useSelector(state => (state as any).project.screen as ScreenState);
+
     return (
         <div className='navbar-panel'>
             <NavBarButton title="New Project" icon="file" />
             <NavBarButton title="Open Project" icon="folder-open" />
-            <NavBarButton title="Save Project" icon="save" showDirtyIndicator={true} onClick={() => {
+            <NavBarButton title="Save Project" icon="save" showDirtyIndicator={screenState.dirtyProject} onClick={() => {
                 alert("This button hasn't been implemented yet.")
             }} />
             <NavBarSpacer />
-            <NavBarButton title="Refresh Pack" icon="sync" showDirtyIndicator={true} onClick={() => {
+            <NavBarButton title="Refresh Pack" icon="sync" showDirtyIndicator={screenState.dirtyWorkspace} onClick={() => {
                 alert("This button hasn't been implemented yet.")
             }} />
             <NavBarButton title="Publish Sprites" icon="share-square" />

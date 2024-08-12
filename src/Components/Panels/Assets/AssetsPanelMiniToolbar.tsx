@@ -6,6 +6,7 @@ import DialogAddImages from "./DialogAddImages.tsx";
 import {removeImages} from "../../../features/appSlice.ts";
 import {useDispatch, useSelector} from "react-redux";
 import {ImageMap} from "../../../features/_Types.ts";
+import DialogColorPicker from "./DialogColorPicker.tsx";
 
 export type AssetsPanelMiniToolbarProps = {
     selectAll: (deselect?: boolean) => void,
@@ -16,6 +17,7 @@ export type AssetsPanelMiniToolbarProps = {
 export default function AssetsPanelMiniToolbar(props: AssetsPanelMiniToolbarProps) {
     const [isFileDialogShown, setIsFileDialogShown] = useState(false);
     const [isDeleteDialogShown, setIsDeleteDialogShown] = useState(false);
+    const [isColorDialogShown, setIsColorDialogShown] = useState(false);
     // const [selectedAssets, setSelectedAssets] = useState([] as string[]);
 
     const assets = useSelector(state => (state as any).project.assets as ImageMap);
@@ -39,6 +41,13 @@ export default function AssetsPanelMiniToolbar(props: AssetsPanelMiniToolbarProp
                 setIsDeleteDialogShown(false);
             }} onCancel={() => {
                 setIsDeleteDialogShown(false);
+            }}/>
+            <DialogColorPicker show={isColorDialogShown} onConfirm={() => {
+                // dispatch(removeImages(props.selectedAssets.join("|")));
+                // props.selectAll(true);
+                setIsColorDialogShown(false);
+            }} onCancel={() => {
+                setIsColorDialogShown(false);
             }}/>
             <DialogAddImages show={isFileDialogShown} onConfirm={() => {
                 setIsFileDialogShown(false);
@@ -65,7 +74,10 @@ export default function AssetsPanelMiniToolbar(props: AssetsPanelMiniToolbarProp
                                 props.orderAsset(props.selectedAssets[0], false);
                             }
                     }} />
-                    <NavBarButton title="Group Images" icon="object-group" isDisabled={true} onClick={() => {}} />
+                    {/*<NavBarButton title="Group Images" icon="object-group" isDisabled={true} onClick={() => {}} />*/}
+                    <NavBarButton title="Group Images" icon="eye-dropper" onClick={() => {
+                        setIsColorDialogShown(true);
+                    }} />
                 </span>
                 <span>Assets</span>
                 <span>
